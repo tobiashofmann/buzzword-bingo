@@ -1,0 +1,28 @@
+<mvc:View controllerName="de.itsfullofstars.buzzwordbingo.de.itsfullofstars.buzzwordbingo.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page">
+        <customHeader>
+            <Toolbar id="pageHeader" class="bwbPageHeader">
+                <Title id="pageTitle" class="bwbPageTitle" text="{i18n>title}" level="H2" wrapping="true" textAlign="Center" />
+            </Toolbar>
+        </customHeader>
+        <content>
+            <VBox id="board" class="bwbBoard" items="{path: 'bingo>/tiles', templateShareable: false}">
+                <Button
+                    id="tile"
+                    class="bwbTile"
+                    type="{= ${bingo>free} ? 'Emphasized' : (${bingo>marked} ? 'Accept' : 'Transparent') }"
+                    text="{bingo>text}"
+                    press="onTilePress"
+                />
+            </VBox>
+        </content>
+        <footer>
+            <Toolbar id="footerToolbar">
+                <ToolbarSpacer id="footerSpacer" />
+                <Button id="newGameButton" text="{i18n>newGame}" press="onNewGame" />
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

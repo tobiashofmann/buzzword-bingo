@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/UIComponent","./model/models"],function(e,t){"use strict";const i=t["createDeviceModel"];const o=e.extend("de.itsfullofstars.buzzwordbingo.de.itsfullofstars.buzzwordbingo.Component",{metadata:{manifest:"json",interfaces:["sap.ui.core.IAsyncContentCreation"]},init:function t(){e.prototype.init.call(this);this.setModel(i(),"device");this.getRouter().initialize()}});return o});
+//# sourceMappingURL=Component.js.map

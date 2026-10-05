@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/mvc/Controller"],function(o){"use strict";const n=o.extend("de.itsfullofstars.buzzwordbingo.de.itsfullofstars.buzzwordbingo.controller.App",{onInit:function o(){}});return n});
+//# sourceMappingURL=App.controller.js.map

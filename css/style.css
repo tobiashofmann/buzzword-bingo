@@ -1,0 +1,82 @@
+.bwbPageHeader {
+    height: auto;
+    min-height: 2.75rem;
+    overflow: visible;
+    white-space: normal;
+    padding: 0.5rem 0.75rem;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+.bwbPageTitle.sapMTitle {
+    width: 100%;
+    white-space: normal;
+    line-height: 1.25;
+}
+
+.bwbBoard {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+    gap: 0.5rem;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 1rem 0;
+}
+
+.bwbTile.sapMBtn {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding-left: 0 !important;
+    border: 2px solid var(--sapButton_BorderColor);
+    border-radius: 0.5rem;
+    background-color: var(--sapTile_Background);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.bwbTile .sapMBtnInner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0.25rem;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.bwbTile .sapMBtnContent {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.25;
+    font-size: clamp(0.6875rem, 2.2vw, 1rem);
+    width: 100%;
+}
+
+.bwbTile .sapMBtnInner.sapMBtnEmphasized .sapMBtnContent {
+    font-weight: bold;
+}
+
+.bwbBingoDialog .bwbBingoContent {
+    padding: 2rem;
+    min-height: 10rem;
+}
+
+.bwbBingoTitle {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--sapButton_Accent_Background, var(--sapAccentColor6));
+    letter-spacing: 0.2rem;
+}
