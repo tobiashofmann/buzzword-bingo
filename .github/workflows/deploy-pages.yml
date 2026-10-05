@@ -9,11 +9,12 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,7 +34,30 @@ jobs:
       - name: Point UI5 bootstrap to the public CDN
         run: |
           UI5_VERSION=$(node -p "require('./webapp/manifest.json')['sap.ui5'].dependencies.minUI5Version")
+          if ! [[ "$UI5_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Unexpected minUI5Version format: $UI5_VERSION"
+            exit 1
+          fi
           sed -i "s#src=\"resources/sap-ui-core.js\"#src=\"https://ui5.sap.com/${UI5_VERSION}/resources/sap-ui-core.js\"#" dist/index.html
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: dist
+          retention-days: 1
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: dist
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
