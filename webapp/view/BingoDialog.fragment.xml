@@ -1,0 +1,24 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Dialog
+        id="bingoDialog"
+        showHeader="false"
+        class="bwbBingoDialog"
+        verticalScrolling="false"
+        horizontalScrolling="false"
+    >
+        <content>
+            <VBox id="bingoContent" class="bwbBingoContent" alignItems="Center" justifyContent="Center">
+                <Title id="bingoTitle" text="{i18n>bingoText}" class="bwbBingoTitle" />
+            </VBox>
+        </content>
+        <beginButton>
+            <Button id="bingoNewGameButton" text="{i18n>newGame}" type="Emphasized" press=".onNewGame" />
+        </beginButton>
+        <endButton>
+            <Button id="bingoCloseButton" text="{i18n>close}" press=".onCloseBingo" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>
